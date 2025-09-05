@@ -1,0 +1,311 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto Light", cursive;
+    background: #000000;
+    color: #eee;
+    min-height: 100vh;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #000000;
+    z-index: 1000;
+    padding: 0;
+}
+
+main {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media (max-width: 768px) {
+    .me-nav {
+        flex-direction: row;
+        height: 100px;
+    }
+
+    .me-nav-list {
+        flex-direction: row;
+        gap: 1px;
+        margin-top: 0;
+    }
+}
+
+.me-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+
+    height: 100px;
+}
+
+.me-nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1px;
+    margin: 0;
+    padding: 0;
+
+}
+
+.me-nav-list li a {
+    text-decoration: none;
+    color: #eee;
+    font-size: 18px;
+
+}
+
+.me-nav-list li a:hover {
+    color: #4caf50;
+}
+
+
+.me-switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    z-index: 1001;
+}
+
+.me-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 25px;
+}
+
+#top-button {
+    height: 40px;
+    width: 80px;
+    border-radius: 50px;
+    border: .25em solid var(--glow-color, rgb(255, 31, 31));
+    color: var(--glow-color, rgb(255, 31, 31));
+    background: transparent;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .me-nav {
+        height: auto;
+        flex-wrap: wrap; /* Allows items to wrap to a new line */
+        justify-content: center; /* Centers the content when wrapped */
+    }
+
+    .me-nav-list {
+        width: 100%; /* Ensures the list takes up the full width */
+        justify-content: center;
+        margin-bottom: 20px; /* Adds space below the list when it wraps */
+    }
+}
+
+
+@keyframes dance {
+    0%   { transform: translateY(0) rotate(0deg) scale(1); }
+    25%  { transform: translateY(-7px) rotate(-4deg) scale(1.05); }
+    50%  { transform: translateY(0) rotate(4deg) scale(1); }
+    75%  { transform: translateY(-7px) rotate(-4deg) scale(1.05); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+
+.me-switch-label {
+    padding: 0 30px 0 0;
+    margin-top: 12px;
+    width: 120px;
+    color: white;
+
+    display: inline-block;
+    animation: dance 2.5s ease-in-out infinite;
+}
+
+/* Sections */
+.me-section {
+    padding: 100px 20px;
+    width: 80%;
+    min-height: 70vh;
+    opacity: 0;
+    transform: translateY(50px);
+    align-items: center;
+    transition: all 1.6s ease-out;
+
+}
+
+#me-summary{
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /*max-width: 50%;*/
+    font-size: 20px;
+}
+
+/*#me-cyber .project-card-smart-me{*/
+/*    height: auto;*/
+/*    border-radius: 10px;*/
+/*    overflow: hidden;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    transition: transform 0.3s ease;*/
+
+/*}*/
+
+.SummaryImage{
+    height: 500px;
+    width: 700px;
+    align-items: center;
+    /*border-radius: 25%;*/
+    padding: 50px 0 50px 0;
+}
+
+.me-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.me-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+.me-section h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+
+
+.me-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 25px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+
+}
+
+/* Cards for photos */
+.project-card-smart-me{
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    background-color: #111;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.project-card-smart-me img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+
+.smartImageWrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: #000; */
+}
+
+.project-card-smart-me a {
+    display: block;
+    height: 100%;
+}
+
+.smartImageWrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.project-card-smart-me img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .me-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card-smart-me {
+        max-width: 100%;
+    }
+}
+
+
+#me-cars .project-card-smart-me:hover,#me-planes .project-card-smart-me:hover,#me-photo .project-card-smart-me  {
+    cursor: default !important;
+    transform: none !important;
+    box-shadow: none !important;
+
+}
+
+.me-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.me-card i {
+    margin-bottom: 10px;
+    color: #4caf50;
+}
+
+.me-card p {
+    font-size: 0.95rem;
+    color: #ccc;
+}
+
+/* Footer */
+.me-footer {
+    text-align: center;
+    padding: 30px 0;
+    background-color: #000;
+    color: #fff;
+    margin-top: 40px;
+}
+
+
+.exposure-photo {
+    max-width: 40%;
+    max-height: 750px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain; /* Ensures full image is visible */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+
