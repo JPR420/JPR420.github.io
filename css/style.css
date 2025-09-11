@@ -488,6 +488,11 @@ form input, form textarea, form button {
 
 }
 
+.social-links .LinkedinLogo:hover{
+    color:  #0A66C2;;
+
+}
+
 .social-links a {
 
     margin-bottom: 15px;
