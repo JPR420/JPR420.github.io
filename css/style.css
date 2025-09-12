@@ -479,30 +479,56 @@ form input, form textarea, form button {
     }
 }
 
-.social-links{
-    padding: 60px 0 0 0 ;
 
-}
-.social-links .githubLogo:hover{
-    color: black;
-
-}
-
-.social-links .LinkedinLogo:hover{
-    color:  #0A66C2;;
-
-}
 
 .social-links a {
-
+    text-decoration: none;
     margin-bottom: 15px;
     color: #444;
     transition: color 0.3s;
 }
 
-.social-links a:hover {
-    color: #4caf50;
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 60px;
+
 }
+
+
+.social-links .githubLogo:hover{
+    color: black;
+    transform: scale(1.2);
+}
+
+.social-links .LinkedinLogo:hover{
+    color: #1874bf;
+    transform: scale(1.2);
+
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    16% { color: orange; }
+    32% { color: yellow; }
+    48% { color: green; }
+    64% { color: blue; }
+    80% { color: indigo; }
+    100% { color: violet; }
+}
+
+.social-links .ImagesLogo:hover {
+    animation: rainbow 3.5s linear infinite;
+    transform: scale(1.2);
+
+}
+.social-links .ResumeLogo:hover {
+color: #912020;
+    transform: scale(1.2);
+
+}
+
 
 
 
