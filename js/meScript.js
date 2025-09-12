@@ -47,3 +47,14 @@ topButton.addEventListener("click", () => {
         }
     }, 300);
 });
+
+const logo = document.querySelector('.ImagesLogo');
+const flash = document.getElementById('flash');
+
+logo.addEventListener('mouseenter', () => {
+    flash.style.opacity = '1';
+    setTimeout(() => {
+        flash.style.opacity = '0';
+    }, 100); // flash duration (100ms)
+});
+

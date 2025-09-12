@@ -147,6 +147,44 @@ main {
 
 }
 
+.ImagesLogo {
+    display: inline-block;
+    color: #8a8a8a;
+    background: transparent;
+    padding: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.ImagesLogo i {
+    transition: 0.3s ease-in-out;
+}
+
+.ImagesLogo:hover i {
+    color: #cacaca; /* keep center visible */
+    text-shadow:
+            0 0 5px #ffffff,
+            0 0 10px #ffffff,
+            0 0 15px #ffffff;
+    transform: scale(1.3); /* slightly bigger */
+    filter: drop-shadow(0 0 10px #ffffff)
+    drop-shadow(0 0 20px #ffffff)
+    drop-shadow(0 0 30px #ffffff);
+}
+
+#flash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+    z-index: 9999;
+}
+
+
 #me-summary{
     align-items: center;
     text-align: center;
