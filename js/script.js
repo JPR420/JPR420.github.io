@@ -45,3 +45,4 @@ topButton.addEventListener("click", () => {
     }, 300);
 });
 
+document.getElementById("year").textContent = new Date().getFullYear();
