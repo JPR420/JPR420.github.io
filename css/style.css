@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 body {
@@ -16,7 +17,7 @@ header {
     width: 100%;
     background: #000000;
     z-index: 1000;
-    font-family: "Roboto Light", cursive;
+
     padding: 0;
 }
 
@@ -73,10 +74,10 @@ section h2 {
     font-weight: bold;
     font-size: 2rem;
     color: #222;
-    font-family: "Roboto Light", cursive;
+
 }
 section h3 {
-    font-family: "Roboto Light", cursive;
+
 
 }
 
@@ -112,6 +113,28 @@ padding: 0 0 0 20px;
     margin-bottom: 20px;
     color: #222;
 }
+
+.skillLogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    font-size: 20px;
+
+}
+
+.skillLogo i {
+    font-size: 100px;
+}
+
+
+
+
+
+
+
 
 .logo-grid {
     display: grid;
@@ -150,6 +173,7 @@ padding: 0 0 0 20px;
     align-items: center;
     text-align: center;
 
+
 }
 
 .logo-card img {
@@ -183,11 +207,28 @@ padding: 0 0 0 20px;
     margin-bottom: 0px;
     display: block;
 }
+
 .skill-name2 {
     font-weight: bold;
     margin-top: 43px;
     margin-bottom: 6px;
     display: block;
+
+}
+
+.databaseContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: auto;
+
+}
+
+.databaseContainer .skillLogo {
+    max-width: 95%;
+    max-height: 80%;
 
 }
 
