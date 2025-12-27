@@ -21,6 +21,54 @@ body {
     padding: 0;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 0 0;
+    height: 80px;
+}
+
+.nav-bar {
+    display: flex;
+    gap: 0;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul {
+    display: flex;
+
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+    justify-content: space-between;
+
+}
+nav ul li a {
+
+    color: white;
+    font-size: 18px;
+}
+
+.nav-bar li a {
+    text-decoration: none; /* remove default underline */
+
+    transition: all 0.3s ease; /* smooth effect */
+}
+
+.nav-bar a:hover {
+    text-decoration: underline;
+    color: #444444;
+
+}
+
 main {
     align-items: center;
     justify-content: center;
@@ -81,24 +129,59 @@ main {
     z-index: 1001;
 }
 
-.me-switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 25px;
-}
+
+
 
 #top-button {
     height: 40px;
     width: 80px;
     border-radius: 50px;
-    border: .25em solid var(--glow-color, rgb(255, 31, 31));
-    color: var(--glow-color, rgb(255, 31, 31));
-    background: transparent;
+    --glow-color: rgb(255, 31, 31);
+    --glow-spread-color: rgb(255, 0, 0);
+    /*--btn-color: rgb(253, 81, 81);*/
+
+    border: .25em solid var(--glow-color);
+    color: var(--glow-color);
     font-size: 15px;
     font-weight: bold;
+    background-color: transparent;
+    outline: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
+    box-shadow: none;
+
+}
+
+#top-button::after {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 120%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--glow-spread-color);
+    filter: blur(2em);
+    opacity: 0;
+    transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+    transition: opacity 0.3s;
+}
+
+#top-button:hover {
+    color: var(--btn-color);
+    background-color: var(--glow-color);
+    box-shadow:
+            0 0 1em .25em var(--glow-color),
+            0 0 4em 2em var(--glow-spread-color),
+            inset 0 0 .75em .25em var(--glow-color);
+}
+
+#top-button:hover::after {
+    opacity: 0.9;
 }
 
 @media (max-width: 768px) {
@@ -125,15 +208,16 @@ main {
 }
 
 
-.me-switch-label {
-    padding: 0 30px 0 0;
-    margin-top: 12px;
-    width: 120px;
-    color: white;
 
+.LightDarkLabel{
+    padding: 10px 0 0 10px;
+    width: 90px;
+    color: white;
+    align-content: center;
     display: inline-block;
     animation: dance 2.5s ease-in-out infinite;
 }
+
 
 /* Sections */
 .me-section {
@@ -193,16 +277,7 @@ main {
     font-size: 20px;
 }
 
-/*#me-cyber .project-card-smart-me{*/
-/*    height: auto;*/
-/*    border-radius: 10px;*/
-/*    overflow: hidden;*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    transition: transform 0.3s ease;*/
 
-/*}*/
 
 .SummaryImage{
     height: 500px;
@@ -245,6 +320,7 @@ main {
 
 /* Cards for photos */
 .project-card-smart-me{
+    position: relative;
     width: 100%;
     max-width: 800px;
     height: auto;
@@ -266,6 +342,50 @@ main {
 }
 
 
+.project-card-smart-me img:hover {
+    transform: scale(1.05);
+
+}
+
+
+.overlay{
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.project-card-smart-me:hover .overlay {
+    opacity: 1;
+}
+
+.project-card-link {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/* Project cards */
+.project-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    max-height: 500px;
+    max-width: 500px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
 
 .smartImageWrapper {
     width: 100%;
@@ -274,6 +394,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     /*background-color: #000; */
 }
 
@@ -282,15 +403,15 @@ main {
     height: 100%;
 }
 
-.smartImageWrapper {
-    width: 100%;
-    height: 100%;
+.smartImageWrapper img {
+    z-index: 1;
 }
 
 .project-card-smart-me img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 @media (max-width: 768px) {
