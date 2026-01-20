@@ -58,3 +58,6 @@ logo.addEventListener('mouseenter', () => {
     }, 100); // flash duration (100ms)
 });
 
+
+
+document.getElementById("year").textContent = new Date().getFullYear();

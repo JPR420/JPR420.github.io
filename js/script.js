@@ -1,21 +1,26 @@
 
 
 
-function revealSections() {
-    const reveals = document.querySelectorAll(".reveal");
-    for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const revealPoint = 150;
 
-        if (elementTop < windowHeight - revealPoint) {
-            reveals[i].classList.add("active");
-        }
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.1
     }
-}
+);
 
-window.addEventListener("scroll", revealSections);
-window.addEventListener("load", revealSections);
+document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+});
+
 
 const topButton = document.getElementById("top-button");
 
@@ -24,7 +29,9 @@ const isMePage = window.location.pathname.includes("me.html");
 
 function typeLineByLine(containerSelector, typingSpeed = 50, lineDelay = 500) {
     const container = document.querySelector(containerSelector);
+    if (!container) return;
     const elements = container.querySelectorAll('p');
+
 
     elements.forEach(el => {
         // Get original text from data-text attribute
@@ -64,10 +71,6 @@ function typeLineByLine(containerSelector, typingSpeed = 50, lineDelay = 500) {
         typeNextLine();
     });
 
-    setTimeout( () => {
-        typeLineByLine('.GreetingText', 110, 800);
-    }, 25000);
-
 }
 
 // Call the function
@@ -77,6 +80,7 @@ typeLineByLine('.GreetingText', 110, 800);
 
 
 let isOn = isMePage;
+
 updateButtonState();
 
 function updateButtonState() {
